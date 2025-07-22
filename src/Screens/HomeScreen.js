@@ -1,19 +1,19 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Animated, Dimensions, ScrollView, StatusBar } from 'react-native';
 import { LinearGradient } from 'react-native-linear-gradient';
+import { useAuth } from './AuthContext';
 
 const { width, height } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation, route }) => {
-    const { username } = route.params || {};
+  const { username, updateAuthData } = useAuth();
   const scaleHome = useRef(new Animated.Value(1)).current;
   const scaleQuestion = useRef(new Animated.Value(1)).current;
   const scoreCardScale = useRef(new Animated.Value(0)).current;
   const scoreCardOpacity = useRef(new Animated.Value(0)).current;
   const resultOpacity = useRef(new Animated.Value(0)).current;
   const confettiAnim = useRef(new Animated.Value(0)).current;
-
-  const { score, total, name } = route.params || {};
+  const { score, total } = route.params || {};
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -183,7 +183,7 @@ const HomeScreen = ({ navigation, route }) => {
                   <View style={styles.studentInfo}>
                     <View style={styles.infoRow}>
                       <Text style={styles.infoLabel}>Candidate Name:</Text>
-                      <Text style={styles.infoValue}>{name || 'N/A'}</Text>
+                      <Text style={styles.infoValue}>{username || ''}</Text>
                     </View>
                     <View style={styles.infoRow}>
                       <Text style={styles.infoLabel}>Examination Date:</Text>

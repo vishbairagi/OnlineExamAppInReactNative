@@ -8,12 +8,14 @@ import QuestionScreen from './src/Screens/QuestionScreen';
 import LoginScreen from './src/Screens/LoginScreen';
 import ExamInstructionScreen from './src/Screens/ExamInstructionScreen';
 import RegisterExam from './src/Screens/RegisterExam';
+import { AuthProvider } from './src/Screens/AuthContext';
 
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen
@@ -47,9 +49,9 @@ export default function App() {
             component={RegisterExam}
             options={{ headerShown: false }}
           />
-          
-        
-      </Stack.Navigator>
-    </NavigationContainer>
+
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 }

@@ -1,9 +1,12 @@
+// LoginScreen.js
 import React, { useState } from 'react';
 import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { useAuth } from './AuthContext';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { updateAuthData } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -17,7 +20,10 @@ const LoginScreen = ({ navigation }) => {
 
       if (data.success) {
         console.log('Login successful:', data);
-       navigation.replace('Home', { username });
+        // Update context and AsyncStorage with username and name
+        const name = data.name || username; // Fallback to username if name not provided by server
+        await updateAuthData(username, name);
+        navigation.replace('Home', { username, name }); // Optional: pass to Home for initial sync
       } else {
         Alert.alert('Login Failed', data.message || 'Invalid credentials');
       }
