@@ -1,0 +1,215 @@
+[
+  {
+    "id": 1,
+    "question": "Which colors are in the Indian national flag?",
+    "options": ["Red", "Green", "White", "Saffron"],
+    "answer": [1, 2, 3],
+    "type": "multi"
+  },
+  {
+    "id": 2,
+    "question": "Who is the Prime Minister of India?",
+    "options": ["Narendra Modi", "Rahul Gandhi", "Amit Shah", "Manmohan Singh"],
+    "answer": 0,
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "question": "Select even numbers:",
+    "options": ["1", "2", "3", "4"],
+    "answer": [1, 3],
+    "type": "multi"
+  },
+  {
+    "id": 4,
+    "question": "Which of these are programming languages?",
+    "options": ["Python", "HTML", "Java", "Photoshop"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 5,
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Madrid", "Paris"],
+    "answer": 3,
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "question": "Which of the following are fruits?",
+    "options": ["Carrot", "Apple", "Mango", "Potato"],
+    "answer": [1, 2],
+    "type": "multi"
+  },
+  {
+    "id": 7,
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Venus", "Earth", "Mars", "Jupiter"],
+    "answer": 2,
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "question": "Which are prime numbers?",
+    "options": ["2", "4", "5", "6"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 9,
+    "question": "Which ocean is the largest?",
+    "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+    "answer": 2,
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "question": "Which are components of a computer?",
+    "options": ["CPU", "RAM", "Mouse", "Bluetooth Speaker"],
+    "answer": [0, 1, 2],
+    "type": "multi"
+  },
+  
+  {
+    "id": 11,
+    "question": "Which of these animals can fly?",
+    "options": ["Eagle", "Lion", "Bat", "Elephant"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 12,
+    "question": "Which continent is India located in?",
+    "options": ["Asia", "Africa", "Europe", "Australia"],
+    "answer": 0,
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "question": "Which are web browsers?",
+    "options": ["Chrome", "Firefox", "Excel", "Safari"],
+    "answer": [0, 1, 3],
+    "type": "multi"
+  },
+  {
+    "id": 14,
+    "question": "What is H2O commonly known as?",
+    "options": ["Hydrogen", "Salt", "Water", "Oxygen"],
+    "answer": 2,
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "question": "Which are primary colors?",
+    "options": ["Red", "Green", "Blue", "Yellow"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 16,
+    "question": "Which gas do plants absorb from the atmosphere?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "answer": 1,
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "question": "Which of these are search engines?",
+    "options": ["Google", "Yahoo", "Bing", "Facebook"],
+    "answer": [0, 1, 2],
+    "type": "multi"
+  },
+  {
+    "id": 18,
+    "question": "Which number is a multiple of 3?",
+    "options": ["4", "6", "7", "10"],
+    "answer": 1,
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "question": "Which animals are herbivores?",
+    "options": ["Cow", "Tiger", "Goat", "Lion"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 20,
+    "question": "Which planet is closest to the Sun?",
+    "options": ["Earth", "Mars", "Mercury", "Venus"],
+    "answer": 2,
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "question": "Which of these are types of clouds?",
+    "options": ["Cumulus", "Nimbus", "Stratus", "Cirrus"],
+    "answer": [0, 1, 2, 3],
+    "type": "multi"
+  },
+  {
+    "id": 22,
+    "question": "Which device stores data permanently?",
+    "options": ["RAM", "Hard Drive", "SSD", "ROM"],
+    "answer": [1, 2, 3],
+    "type": "multi"
+  },
+  {
+    "id": 23,
+    "question": "Which of these are renewable sources of energy?",
+    "options": ["Coal", "Solar", "Wind", "Oil"],
+    "answer": [1, 2],
+    "type": "multi"
+  },
+  {
+    "id": 24,
+    "question": "What is the boiling point of water at sea level?",
+    "options": ["90°C", "100°C", "110°C", "120°C"],
+    "answer": 1,
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "question": "Which of the following are mammals?",
+    "options": ["Whale", "Dolphin", "Frog", "Shark"],
+    "answer": [0, 1],
+    "type": "multi"
+  },
+  {
+    "id": 26,
+    "question": "What is the currency of Japan?",
+    "options": ["Dollar", "Yen", "Euro", "Won"],
+    "answer": 1,
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "question": "Which of the following are parts of a flower?",
+    "options": ["Petal", "Stem", "Stamen", "Leaf"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 28,
+    "question": "Which is the longest river in the world?",
+    "options": ["Nile", "Amazon", "Yangtze", "Ganges"],
+    "answer": 0,
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "question": "Which are Indian states?",
+    "options": ["Karnataka", "California", "Gujarat", "Ontario"],
+    "answer": [0, 2],
+    "type": "multi"
+  },
+  {
+    "id": 30,
+    "question": "Which of these are file formats for images?",
+    "options": ["PNG", "MP3", "JPG", "GIF"],
+    "answer": [0, 2, 3],
+    "type": "multi"
+  }
+
+
+]
