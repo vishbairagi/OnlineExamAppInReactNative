@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ScrollView } from 'react-native';
 
-const API_URL = 'http://10.0.2.2:5000';
+const API_URL = 'http://192.168.0.103:5000';
 const EXAM_DURATION_MINUTES = 30;
 
 const RegisterExam = ({ navigation, route }) => {

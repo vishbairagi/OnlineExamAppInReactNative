@@ -13,7 +13,7 @@ const ExamInstructionScreen = ({ navigation }) => {
 
         <View style={styles.section}>
           <Text style={styles.heading}>General Guidelines:</Text>
-          <Text style={styles.text}>• Total Time: 5 minutes</Text>
+          <Text style={styles.text}>• Total Time: 10 minutes</Text>
           <Text style={styles.text}>• Number of Questions: 30</Text>
           <Text style={styles.text}>• Types: Single Choice & Multiple Choice</Text>
           <Text style={styles.text}>• No negative marking</Text>

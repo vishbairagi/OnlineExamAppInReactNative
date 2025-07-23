@@ -1,14 +1,21 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import { useAuth } from './AuthContext'; // Adjust path as needed
 
 const SplashScreen = ({ navigation }) => {
+  const { username, name } = useAuth();
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login'); // Always go to Login
+      if (username && name) {
+        navigation.replace('Home', { username, name });
+      } else {
+        navigation.replace('Login');
+      }
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [navigation]);
+  }, [navigation, username, name]);
 
   return (
     <View style={styles.container}>

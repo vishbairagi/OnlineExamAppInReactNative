@@ -13,6 +13,7 @@ const HomeScreen = ({ navigation, route }) => {
   const scoreCardOpacity = useRef(new Animated.Value(0)).current;
   const resultOpacity = useRef(new Animated.Value(0)).current;
   const confettiAnim = useRef(new Animated.Value(0)).current;
+
   const { score, total } = route.params || {};
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -70,12 +71,12 @@ const HomeScreen = ({ navigation, route }) => {
 
   const getScoreGrade = () => {
     const percentage = (score / total) * 100;
-    if (percentage >= 90) return 'A+';
-    if (percentage >= 80) return 'A';
-    if (percentage >= 70) return 'B+';
-    if (percentage >= 60) return 'B';
-    if (percentage >= 50) return 'C';
-    return 'F';
+    if (percentage >= 90) return 'GRADE: A+';
+    if (percentage >= 80) return 'GRADE: A';
+    if (percentage >= 70) return 'GRADE: B+';
+    if (percentage >= 60) return 'GRADE: B';
+    if (percentage >= 50) return 'GRADE: C+';
+    return 'GRADE: C';
   };
 
   const getScoreStatus = () => {
@@ -237,7 +238,7 @@ const HomeScreen = ({ navigation, route }) => {
                         <Text style={styles.statLabel}>Accuracy</Text>
                       </View>
                       <View style={styles.statItem}>
-                        <Text style={styles.statNumber}>5:00</Text>
+                        <Text style={styles.statNumber}>10:00</Text>
                         <Text style={styles.statLabel}>Duration</Text>
                       </View>
                     </View>
@@ -578,7 +579,7 @@ const styles = StyleSheet.create({
     color: '#6b7280',
   },
   footerTime: {
-    fontSize: 10,
+    fontSize: 12,
     color: '#9ca3af',
     marginTop: 2,
   },
@@ -711,6 +712,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   navIconContainer: {
+
+    
     width: 40,
     height: 40,
     backgroundColor: '#f3f4f6',
@@ -720,10 +723,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   navIcon: {
-    fontSize: 20,
+    fontSize: 18,
   },
   navLabel: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#374151',
     fontWeight: '600',
   },

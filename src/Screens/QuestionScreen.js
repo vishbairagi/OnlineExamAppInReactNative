@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert, Dimensions } from 'react-native';
 import questions from '../questions.json';
+import { useAuth } from './AuthContext';
 
-const TOTAL_TIME = 300; // 5 minutes in seconds
+
+const TOTAL_TIME = 600; // 10 minutes in seconds
 const { width } = Dimensions.get('window');
 
 const QuestionScreen = ({ navigation, route }) => {
+    const { username, updateAuthData } = useAuth();
+  
   const [answers, setAnswers] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
-  const { name } = route.params || {};
 
   // Initialize shuffled questions on component mount
   useEffect(() => {
@@ -73,32 +76,53 @@ const QuestionScreen = ({ navigation, route }) => {
     );
   };
 
-  const submitExam = () => {
-    setIsSubmitting(true);
-    
-    let score = 0;
-    shuffledQuestions.forEach((q) => {
-      const userAns = answers[q.id];
-      if (q.type === 'single' && userAns === q.answer) {
-        score++;
-      } else if (
-        q.type === 'multi' &&
-        Array.isArray(userAns) &&
-        JSON.stringify(userAns.sort()) === JSON.stringify(q.answer.sort())
-      ) {
-        score++;
-      }
+const submitExam = async () => {
+  setIsSubmitting(true);
+
+  let score = 0;
+  shuffledQuestions.forEach((q) => {
+    const userAns = answers[q.id];
+    if (q.type === 'single' && userAns === q.answer) {
+      score++;
+    } else if (
+      q.type === 'multi' &&
+      Array.isArray(userAns) &&
+      JSON.stringify(userAns.sort()) === JSON.stringify(q.answer.sort())
+    ) {
+      score++;
+    }
+  });
+
+  try {
+    // Submit score to backend
+    const response = await fetch("http://192.168.0.103:5000/exam/submit-score", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: username, score }),
     });
 
-    // Simulate submission delay
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to submit score");
+    }
+
+    // Success: navigate to home with score
     setTimeout(() => {
-      navigation.replace('Home', {
+      navigation.replace("Home", {
         score,
         total: shuffledQuestions.length,
-        name,
+        username,
       });
-    }, 1500);
-  };
+    }, 1000);
+  } catch (error) {
+    Alert.alert("Submission Error", error.message);
+    setIsSubmitting(false);
+  }
+};
+
 
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
@@ -133,7 +157,7 @@ const QuestionScreen = ({ navigation, route }) => {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Text style={styles.examTitle}>Online Examination System</Text>
-          <Text style={styles.candidateName}>Candidate: {name}</Text>
+          <Text style={styles.candidateName}>Candidate: {username}</Text>
         </View>
         <View style={styles.headerRight}>
           <Text style={styles.timerLabel}>Time Remaining</Text>
